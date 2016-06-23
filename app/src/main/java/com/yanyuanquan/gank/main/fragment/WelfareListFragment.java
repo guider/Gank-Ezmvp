@@ -11,6 +11,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 
+import com.yanyuanquan.android.automvp.annotation.Presenter;
 import com.yanyuanquan.gank.Image.activity.ImagePagerActivity;
 import com.yanyuanquan.gank.R;
 import com.yanyuanquan.gank.entity.GirlBean;
@@ -26,17 +27,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-
-public class WelfareListFragment extends LazyFragment implements IWelfareView<GirlBean> {
+@Presenter(WelfarePresenter.class)
+public class WelfareListFragment extends LazyFragment<WelfarePresenter> implements IWelfareView<GirlBean> {
 
     public static final String BUNDLE_KEY_TYPE="BUNDLE_KEY_TYPE";
-
     @Bind(R.id.recycle_view)
     RecyclerView recycleView;
-
     private List<GirlBean> mData = new ArrayList<>();
     private WelfareAdapter welfareAdapter;
-    private WelfarePresenter welfarePresenter;
     private StaggeredGridLayoutManager mStaggeredGridLayoutManager;
     private LinearLayoutManager mLinearLayoutManager;
     private String mType;
@@ -69,6 +67,7 @@ public class WelfareListFragment extends LazyFragment implements IWelfareView<Gi
         lazyLoad();
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +78,6 @@ public class WelfareListFragment extends LazyFragment implements IWelfareView<Gi
     }
 
     private void initView() {
-        welfarePresenter = new WelfarePresenter(this);
         recycleView.setHasFixedSize(true);
         recycleView.setItemAnimator(new SlideInOutBottomItemAnimator(recycleView));
         recycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -105,7 +103,7 @@ public class WelfareListFragment extends LazyFragment implements IWelfareView<Gi
                 if (newState == RecyclerView.SCROLL_STATE_IDLE
                         && lastVisibleItem + 1 == welfareAdapter.getItemCount()
                         && welfareAdapter.isShowFooter()) {
-                    welfarePresenter.loadNews(mType, pageIndex );
+                    presenter.loadNews(mType, pageIndex );
                 }
             }
         });
@@ -143,7 +141,7 @@ public class WelfareListFragment extends LazyFragment implements IWelfareView<Gi
         if(mData != null) {
             mData.clear();
         }
-        welfarePresenter.loadNews(mType,pageIndex);
+        presenter.loadNews(mType,pageIndex);
     }
 
 

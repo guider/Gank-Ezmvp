@@ -1,6 +1,7 @@
 package com.yanyuanquan.gank.main.model;
 
 
+import com.yanyuanquan.android.automvp.model.BaseModel;
 import com.yanyuanquan.gank.entity.GirlBean;
 import com.yanyuanquan.gank.http.HttpMethods;
 import com.yanyuanquan.gank.util.log.L;
@@ -10,7 +11,7 @@ import java.util.List;
 import rx.Subscriber;
 
 
-public class WelfareModel {
+public class WelfareModel extends BaseModel{
 
 
     public void loadNews(String type,int pageIndex, final OnLoadDataListListener listener) {

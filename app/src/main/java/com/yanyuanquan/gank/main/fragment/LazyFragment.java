@@ -1,10 +1,11 @@
 package com.yanyuanquan.gank.main.fragment;
 
 
+import com.yanyuanquan.android.automvp.presenter.BasePresenter;
 import com.yanyuanquan.gank.base.BaseSwipeRefreshFragment;
 import com.yanyuanquan.gank.main.presenter.WelfarePresenter;
 
-public abstract class LazyFragment extends BaseSwipeRefreshFragment<WelfarePresenter> {
+public abstract class LazyFragment<P extends BasePresenter> extends BaseSwipeRefreshFragment<P> {
 
     protected boolean isVisible;
     /**

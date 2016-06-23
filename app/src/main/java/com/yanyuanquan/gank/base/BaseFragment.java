@@ -1,16 +1,22 @@
 package com.yanyuanquan.gank.base;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yanyuanquan.android.automvp.annotation.Presenter;
+import com.yanyuanquan.android.automvp.presenter.*;
+import com.yanyuanquan.android.automvp.presenter.BasePresenter;
+
 import butterknife.ButterKnife;
 
 
-public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
+public abstract class BaseFragment<P extends com.yanyuanquan.android.automvp.presenter.BasePresenter> extends Fragment {
 
+   protected  P presenter;
     protected View rootView;
 
     protected abstract int getLayout();
@@ -27,8 +33,12 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         }
 
         ButterKnife.bind(this, rootView);
+        presenter = BasePresenter.getInstance(this.getClass());
+        presenter.onPostCreate(this);
         return rootView;
     }
+
+
 
     protected String getName(){
         return BaseFragment.class.getName();

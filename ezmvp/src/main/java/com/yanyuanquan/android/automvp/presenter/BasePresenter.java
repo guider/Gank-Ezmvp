@@ -56,7 +56,7 @@ public class BasePresenter<V, M extends BaseModel> extends UtilPresenter {
     }
 
     String id;
-    V view;
+    protected V view;
 
     @NonNull
     public final V getView() {

@@ -5,13 +5,13 @@ import android.support.v4.widget.SwipeRefreshLayout;
 
 
 import com.yanyuanquan.gank.R;
-import com.yanyuanquan.gank.base.BaseFragment;
-import com.yanyuanquan.gank.base.BasePresenter;
+import com.yanyuanquan.android.automvp.presenter.BasePresenter;
 import com.yanyuanquan.gank.base.IBaseSwipeRefreshView;
 
 import butterknife.Bind;
 
-public abstract class BaseSwipeRefreshFragment <P extends BasePresenter> extends BaseFragment<P> implements IBaseSwipeRefreshView,SwipeRefreshLayout.OnRefreshListener {
+public abstract class BaseSwipeRefreshFragment <P extends BasePresenter> extends BaseFragment<P>
+        implements IBaseSwipeRefreshView,SwipeRefreshLayout.OnRefreshListener {
 
     @Bind(R.id.swipe_refresh_widget)
     SwipeRefreshLayout swipeRefreshWidget;
