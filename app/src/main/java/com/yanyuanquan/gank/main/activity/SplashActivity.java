@@ -10,6 +10,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
 
+import com.yanyuanquan.android.automvp.annotation.Presenter;
 import com.yanyuanquan.gank.R;
 import com.yanyuanquan.gank.base.BaseActivity;
 
