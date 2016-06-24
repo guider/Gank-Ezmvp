@@ -1,5 +1,6 @@
 package com.yanyuanquan.gank.Image.fragment;
 
+import com.yanyuanquan.android.automvp.annotation.Model;
 import com.yanyuanquan.android.automvp.presenter.BasePresenter;
 
 /**
@@ -7,5 +8,6 @@ import com.yanyuanquan.android.automvp.presenter.BasePresenter;
  * Email guider@yeah.net
  * github https://github.com/guider
  */
-public class ImageFragmentPresenter extends BasePresenter {
+@Model(ImageFragmentModel.class)
+public class ImageFragmentPresenter extends BasePresenter<ImageViewFragment,ImageFragmentModel> {
 }

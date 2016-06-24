@@ -7,5 +7,5 @@ import com.yanyuanquan.android.automvp.model.BaseModel;
  * Email guider@yeah.net
  * github https://github.com/guider
  */
-public class ImageFragmentModel extends BaseModel {
+public class ImageFragmentModel extends BaseModel  {
 }

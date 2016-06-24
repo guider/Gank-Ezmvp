@@ -31,7 +31,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        Log.e("zjw"," onPostCreate   ");
         presenter.onPostCreate(this);
     }
 

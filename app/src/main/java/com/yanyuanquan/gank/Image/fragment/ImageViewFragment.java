@@ -10,6 +10,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.yanyuanquan.android.automvp.annotation.Presenter;
 import com.yanyuanquan.gank.Image.activity.ImagePagerActivity;
 import com.yanyuanquan.gank.R;
 import com.yanyuanquan.gank.base.BaseFragment;
@@ -17,8 +18,8 @@ import com.yanyuanquan.gank.widget.TouchImageView;
 
 import butterknife.Bind;
 import butterknife.OnClick;
-
-public class ImageViewFragment extends BaseFragment implements RequestListener<String, GlideDrawable> {
+@Presenter(ImageFragmentPresenter.class)
+public class ImageViewFragment extends BaseFragment<ImageFragmentPresenter> implements RequestListener<String, GlideDrawable> {
 
     @Bind(R.id.touch_image_view)
     TouchImageView touchImageView;
