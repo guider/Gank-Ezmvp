@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Gank</string>
 
-    <string name="title_main">干货集中营</string>
+    <string name="title_main">每日干货</string>
 
     <string name="action_settings">设置</string>
     <string name="action_heart">收藏</string>
-    <string name="action_day_night">黑夜模式</string>
+    <string name="action_day_night">夜间模式</string>
     <string name="action_about">关于</string>
 
     <string name="action_share">分享</string>
